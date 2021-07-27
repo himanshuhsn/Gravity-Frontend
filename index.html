@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>Gravity</title>
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans+Condensed|Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- libs for stomp and sockjs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.4.0/sockjs.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+    <!-- end libs for stomp and sockjs-->
+</head>
+<body>
+    <div class='flex'>
+        <div class='p1'>Player 1: 0</div>
+        <h1 class='header'>Gravity</h1>
+        <div class='p2'>Player 2: 0</div>
+    </div>
+    <div class='grid'>
+        <div class="space" id="0_0"></div>
+        <div class="space" id="0_1"></div>
+        <div class="space" id="0_2"></div>
+        <div class="space" id="0_3"></div>
+        <div class="space" id="0_4"></div>
+        <div class="space" id="0_5"></div>
+        <div class="space" id="0_6"></div>
+
+        <div class="space" id="1_0"></div>
+        <div class="space" id="1_1"></div>
+        <div class="space" id="1_2"></div>
+        <div class="space" id="1_3"></div>
+        <div class="space" id="1_4"></div>
+        <div class="space" id="1_5"></div>
+        <div class="space" id="1_6"></div>
+
+        <div class="space" id="2_0"></div>
+        <div class="space" id="2_1"></div>
+        <div class="space" id="2_2"></div>
+        <div class="space" id="2_3"></div>
+        <div class="space" id="2_4"></div>
+        <div class="space" id="2_5"></div>
+        <div class="space" id="2_6"></div>
+
+        <div class="space" id="3_0"></div>
+        <div class="space" id="3_1"></div>
+        <div class="space" id="3_2"></div>
+        <div class="space" id="3_3"></div>
+        <div class="space" id="3_4"></div>
+        <div class="space" id="3_5"></div>
+        <div class="space" id="3_6"></div>
+
+        <div class="space" id="4_0"></div>
+        <div class="space" id="4_1"></div>
+        <div class="space" id="4_2"></div>
+        <div class="space" id="4_3"></div>
+        <div class="space" id="4_4"></div>
+        <div class="space" id="4_5"></div>
+        <div class="space" id="4_6"></div>
+
+        <div class="space" id="5_0"></div>
+        <div class="space" id="5_1"></div>
+        <div class="space" id="5_2"></div>
+        <div class="space" id="5_3"></div>
+        <div class="space" id="5_4"></div>
+        <div class="space" id="5_5"></div>
+        <div class="space" id="5_6"></div>
+        
+        <div class="space" id="6_0"></div>
+        <div class="space" id="6_1"></div>
+        <div class="space" id="6_2"></div>
+        <div class="space" id="6_3"></div>
+        <div class="space" id="6_4"></div>
+        <div class="space" id="6_5"></div>
+        <div class="space" id="6_6"></div>
+    </div>
+      
+    <div class='wrapper'>
+        <button class='reset'>Reset</button>
+        <input id="login" placeholder="Place a login here">
+        <button class='reset' onclick="createGame()">Create a new game</button>
+        <button class='reset' onclick="connectToRandom()">Connect to random game</button>
+        <input id="game_id" placeholder="Paste game id">
+        <button class='reset'>Connect by game id</button>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/socket_js.js"></script>
+</body>
+</html>
