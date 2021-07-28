@@ -7,7 +7,6 @@ let turns = [
     ["", "", "", "", "", "", ""],
     ["", "", "", "", "", "", ""]
 ];
-let turn = ""
 let gameOn = false;
 
 function displayResponse(data) {
@@ -53,19 +52,35 @@ function makeMove(type, xCoordinate, yCoordinate) {
     })
 }
 
-function playerTurn(turn, id) {
+function playerTurn(id) {
     if(gameOn) {
-        let spotTaken = $("#"+id).text();
-        if(spotTaken === "") {
-            makeMove(playerType, id.split("_")[0], id.split("_")[1]);
+        if(isValidMove(id)) {
+            let spotTaken = $("#"+id).text();
+            if(spotTaken === "") {
+                makeMove(playerType, id.split("_")[0], id.split("_")[1]);
+            }
+        } else {
+            console.log("Invalid Move");
+            alert("Invalid Move");
         }
+    } else {
+        console.log("other player turn");
+        alert("other player turn");
     }
 }
 
 $(".space").click( function() {
     let slot = $(this).attr('id');
-    playerTurn(turn, slot);
+    playerTurn(slot);
 });
+
+function isValidMove(id) {
+    let x = parseInt(id.split("_")[0]);
+    let y = parseInt(id.split("_")[1]);
+
+    if(x === turns.length-1) return true;
+    return !(turns[x+1][y] === "");
+}
 
 function reset() {
     turns = [
