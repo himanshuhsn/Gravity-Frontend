@@ -13,13 +13,14 @@ function displayResponse(data) {
     let board = data.board;
     for(let i=0; i<board.length; i++) {
         for(let j=0; j<board[i].length; j++) {
+            let id = i + "_" + j;
             if(board[i][j] == 1) {
                 turns[i][j] = 'X';
+                $("#"+id).append("<div class='x'>X</div>");
             } else if(board[i][j] == 2) {
                 turns[i][j] = 'O';
+                $("#"+id).append("<div class='o'>O</div>");
             }
-            let id = i + "_" + j;
-            $("#"+id).text(turns[i][j]);
         }
     }
 
