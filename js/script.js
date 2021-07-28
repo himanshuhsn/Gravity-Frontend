@@ -44,9 +44,8 @@ function makeMove(type, xCoordinate, yCoordinate) {
             "gameId": gameId
         }),
         success: (data) => {
-            gameOn = false;
-            console.log("success on make move");
             displayResponse(data);
+            gameOn = false;
         },
         error: (error) => {
             console.log(error);
