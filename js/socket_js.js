@@ -77,8 +77,8 @@ function conectToSpecificGame() {
     if(login === null || login === "") {
         alert("Please enter login");
     } else {
-        let gameId = document.getElementById("game_id").value;
-        if(gameId===null || gameId==='') {
+        let game_id = document.getElementById("game_id").value;
+        if(game_id===null || game_id==='') {
             alert("Please enter gameId");
         }
         $.ajax({
@@ -90,7 +90,7 @@ function conectToSpecificGame() {
                 "player": {
                     "login": login
                 },
-                "gameId": gameId
+                "gameId": game_id
             }),
             success: (data) => {
                 gameId = data.gameId;
