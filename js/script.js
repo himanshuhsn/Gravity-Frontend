@@ -24,11 +24,19 @@ function displayResponse(data) {
         }
     }
 
-    if(data.winner !== null) {
-        alert("Winner is " + data.winner);
+    if(data.winner.winner !== null) {
+        alert("Winner is " + data.winner.winner);
+        data.winner.winningCells.forEach(cell => {
+            colorCell(cell.x, cell.y);
+        });
     }
 
     gameOn = true;
+}
+
+function colorCell(x,y) {
+    let id = x+"_"+y;
+    $("#"+id).css("background-color", "#c6f68d");
 }
 
 function makeMove(type, xCoordinate, yCoordinate) {
