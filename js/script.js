@@ -29,8 +29,11 @@ function displayResponse(data) {
         data.winner.winningCells.forEach(cell => {
             colorCell(cell.x, cell.y);
         });
-        gameEnded = true;
         setTimeout(() => { alert("Winner is " + data.winner.winner); }, 500);
+    }
+
+    if(data.status === "FINISHED") {
+        gameEnded = true;
     }
 
     gameOn = true;
