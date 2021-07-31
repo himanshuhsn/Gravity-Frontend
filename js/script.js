@@ -52,13 +52,12 @@ function makeMove(type, xCoordinate, yCoordinate) {
             "gameId": gameId
         }),
         success: (data) => {
-            displayResponse(data);
             gameOn = false;
         },
         error: (error) => {
             console.log(error);
         }
-    })
+    });
 }
 
 function playerTurn(id) {
