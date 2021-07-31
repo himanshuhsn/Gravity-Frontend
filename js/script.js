@@ -8,6 +8,7 @@ let turns = [
     ["", "", "", "", "", "", ""]
 ];
 let gameOn = false;
+let gameEnded = false;
 
 function displayResponse(data) {
     let board = data.board;
@@ -28,7 +29,8 @@ function displayResponse(data) {
         data.winner.winningCells.forEach(cell => {
             colorCell(cell.x, cell.y);
         });
-        setTimeout(() => { alert("Winner is " + data.winner.winner); }, 400);
+        gameEnded = true;
+        setTimeout(() => { alert("Winner is " + data.winner.winner); }, 500);
     }
 
     gameOn = true;
@@ -61,7 +63,11 @@ function makeMove(type, xCoordinate, yCoordinate) {
 }
 
 function playerTurn(id) {
-    if(gameOn) {
+    if(gameId === undefined) {
+        console.log("Not connected to any game");
+        alert("You are not connected to any game");
+    }
+    else if(gameOn) {
         if(isValidMove(id)) {
             let spotTaken = $("#"+id).text();
             if(spotTaken === "") {
@@ -79,7 +85,12 @@ function playerTurn(id) {
 
 $(".space").click( function() {
     let slot = $(this).attr('id');
-    playerTurn(slot);
+    if(!gameEnded) {
+        playerTurn(slot);
+    } else {
+        console.log("Game Ended!");
+        alert("Game Ended!");
+    }
 });
 
 function isValidMove(id) {
