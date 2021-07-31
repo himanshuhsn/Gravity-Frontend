@@ -25,10 +25,10 @@ function displayResponse(data) {
     }
 
     if(data.winner.winner !== null) {
-        alert("Winner is " + data.winner.winner);
         data.winner.winningCells.forEach(cell => {
             colorCell(cell.x, cell.y);
         });
+        setTimeout(() => { alert("Winner is " + data.winner.winner); }, 400);
     }
 
     gameOn = true;
