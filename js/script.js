@@ -11,6 +11,9 @@ let gameOn = false;
 let gameEnded = false;
 
 function displayResponse(data) {
+    if(data.status === "NEW") {
+        replay();
+    }
     let board = data.board;
     for(let i=0; i<board.length; i++) {
         for(let j=0; j<board[i].length; j++) {
@@ -104,7 +107,7 @@ function isValidMove(id) {
     return !(turns[x+1][y] === "");
 }
 
-function reset() {
+function replay() {
     turns = [
         ["", "", "", "", "", "", ""],
         ["", "", "", "", "", "", ""],
@@ -115,8 +118,7 @@ function reset() {
         ["", "", "", "", "", "", ""]
     ];
     $(".space").text("");
+    $(".space").css("background-color", "white");
+    gameEnded = false;
+    gameOn = true;
 }
-
-$("#reset").click(function () {
-    reset();
-});

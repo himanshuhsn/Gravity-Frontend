@@ -33,7 +33,7 @@ function createGame() {
             success: function (data) {
                 gameId = data.gameId;
                 playerType = 'X';
-                reset();
+                replay();
                 connectToSocket(gameId);
                 alert("Your Game is Connected. Your Game ID is: " + data.gameId);
                 gameOn =  true;
@@ -61,7 +61,7 @@ function connectToRandom() {
             success: (data) => {
                 gameId = data.gameId;
                 playerType = 'O';
-                reset();
+                replay();
                 connectToSocket(gameId);
                 alert("Congrats You are playing with " + data.player1.login);
             },
@@ -95,7 +95,7 @@ function conectToSpecificGame() {
             success: (data) => {
                 gameId = data.gameId;
                 playerType = 'O';
-                reset();
+                replay();
                 connectToSocket(gameId);
                 alert("Congrats You are playing with " + data.player1.login);
             },
