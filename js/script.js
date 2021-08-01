@@ -9,6 +9,7 @@ let turns = [
 ];
 let gameOn = false;
 let gameEnded = false;
+let prevent = false; // prevent repeated clicks
 
 function displayResponse(data) {
     if(data.status === "NEW") {
@@ -39,7 +40,9 @@ function displayResponse(data) {
         gameEnded = true;
     }
 
-    gameOn = true;
+    // running prevent logic
+    if(prevent == true) prevent = false;
+    else gameOn = !gameOn;
 }
 
 function colorCell(x,y) {
@@ -48,6 +51,8 @@ function colorCell(x,y) {
 }
 
 function makeMove(type, xCoordinate, yCoordinate) {
+    gameOn = false;
+    prevent = true;
     $.ajax({
         url: url + "/api/game/gameplay",
         type: "POST",
@@ -60,7 +65,7 @@ function makeMove(type, xCoordinate, yCoordinate) {
             "gameId": gameId
         }),
         success: (data) => {
-            gameOn = false;
+            // No need to catch this as data will receive through socket
         },
         error: (error) => {
             console.log(error);
@@ -120,5 +125,4 @@ function replay() {
     $(".space").text("");
     $(".space").css("background-color", "white");
     gameEnded = false;
-    gameOn = true;
 }
