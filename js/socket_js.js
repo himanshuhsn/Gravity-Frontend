@@ -1,5 +1,6 @@
-//let url = "http://localhost:8080";
-//let url = "https://logigame-gravity.herokuapp.com";
+// let url = "http://localhost:8080";
+let url = "https://gravity-q8e6.onrender.com";
+
 let stompClient;
 let gameId;
 let playerType;
