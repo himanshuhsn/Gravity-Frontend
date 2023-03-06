@@ -6,7 +6,7 @@ function checkData() {
         type: "GET",
         url: PING_URL,
         success: function (data) {
-            console.log("pinged the backend server")
+            // console.log("pinged the backend server")
             // console.log(data);
         }
     });
